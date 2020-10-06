@@ -27,7 +27,7 @@ Handy.init()
 
 locale.bindtextdomain('fontdownloader', path.join(path.dirname(__file__).split('fontdownloader')[0],'locale'))
 locale.textdomain('fontdownloader')
-webfontsData = json.load(open("/app/share/fontdownloader/fontdownloader/webfonts.json", 'r'))
+webfontsData = json.load(open(path.join(path.dirname(__file__).split('fontdownloader')[0],'fontdownloader/fontdownloader/webfonts.json'), 'r'))
 
 #Here we import the font-box template which is used for the fonts' boxes
 @Gtk.Template(resource_path='/org/gustavoperedo/FontDownloader/font-box.ui')
@@ -46,7 +46,7 @@ class FontBox(Gtk.Box):
         self.fontFamily.set_text(familyName)
         #Change category to it's translation
 
-        self.fontCategory.set_text(_('sans-serif') if category=='sans-serif' else (_('serif') if category=='serif' else (_('display') if category=='display' else (_('monospaced') if category=='monospaced' else _('handwriting')))))
+        self.fontCategory.set_text(_('sans-serif') if category=='sans-serif' else (_('serif') if category=='serif' else (_('display') if category=='display' else (_('monospaced') if category=='monospace' else _('handwriting')))))
 
 
 #Here we import the main window template
